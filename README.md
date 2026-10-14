@@ -2,7 +2,7 @@
 
 Papan kanban tiga lajur — Antre, Dikerjakan, Selesai — dengan marka jalan putus-putus di antara lajur. Teal di atas kertas; mode gelap seperti aspal. Sebelumnya bernama "TaskFlow", diganti karena nama itu dipakai banyak aplikasi lain.
 
-**Demo live:** https://todo-kanban-one.vercel.app
+**Demo live:** https://todo-kanban.pintuweb.id
 
 ![Tangkapan layar](public/og.jpg)
 

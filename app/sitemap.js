@@ -1,4 +1,4 @@
-const URL = 'https://todo-kanban-one.vercel.app';
+const URL = 'https://todo-kanban.pintuweb.id';
 
 export default function sitemap() {
   const now = new Date();

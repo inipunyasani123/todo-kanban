@@ -3,10 +3,10 @@ import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
-const __jsonld = {"@context":"https://schema.org","@type":"WebApplication","name":"Lajur Kanban","description":"Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.","url":"https://todo-kanban-one.vercel.app","applicationCategory":"ProductivityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"}};
+const __jsonld = {"@context":"https://schema.org","@type":"WebApplication","name":"Lajur Kanban","description":"Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.","url":"https://todo-kanban.pintuweb.id","applicationCategory":"ProductivityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"}};
 
 export const metadata = {
-  metadataBase: new URL("https://todo-kanban-one.vercel.app"),
+  metadataBase: new URL("https://todo-kanban.pintuweb.id"),
   title: { default: "Lajur — Papan kanban dengan batas WIP", template: "%s — Lajur" },
   description: "Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.",
   applicationName: "Lajur",
@@ -14,11 +14,11 @@ export const metadata = {
   authors: [{ name: "Lajur" }],
   creator: "Lajur",
   publisher: "Lajur",
-  alternates: { canonical: "https://todo-kanban-one.vercel.app" },
+  alternates: { canonical: "https://todo-kanban.pintuweb.id" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://todo-kanban-one.vercel.app",
+    url: "https://todo-kanban.pintuweb.id",
     siteName: "Lajur",
     title: "Lajur — Papan kanban dengan batas WIP",
     description: "Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.",
