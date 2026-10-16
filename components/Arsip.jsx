@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { RotateCcw, Trash2 } from 'lucide-react';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { contoh, KUNCI } from '@/lib/papan';
+import { ArsipKosong } from './Ilustrasi';
 
 const fmt = (iso) => (iso ? new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' }) : '—');
 
@@ -16,6 +17,7 @@ export default function Arsip() {
   if (!arsip.length) {
     return (
       <div className="rounded-2xl border border-dashed border-outline-variant p-10 text-center">
+        <ArsipKosong />
         <p className="text-lg font-bold text-on-surface">Arsip kosong</p>
         <p className="mt-1 text-on-surface-variant">Kartu dari lajur Selesai yang diarsipkan akan muncul di sini.</p>
         <Link href="/" className="mt-4 inline-block rounded-lg bg-primary-container px-5 py-2.5 text-sm font-semibold text-on-primary">Kembali ke papan</Link>
