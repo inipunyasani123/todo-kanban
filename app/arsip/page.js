@@ -1,11 +1,8 @@
 import TopBar from '@/components/TopBar';
 import Arsip from '@/components/Arsip';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Arsip',
-  description: 'Kartu Lajur yang sudah diarsipkan dari lajur Selesai — kembalikan ke papan atau hapus selamanya.',
-  alternates: { canonical: '/arsip' },
-};
+export const metadata = pageMeta({ title: 'Arsip', description: "Kartu Lajur yang sudah diarsipkan dari lajur Selesai — kembalikan ke papan atau hapus selamanya.", path: '/arsip' });
 
 export default function ArsipPage() {
   return (

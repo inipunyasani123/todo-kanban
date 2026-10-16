@@ -2,12 +2,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { X, Plus, Trash2, Save } from 'lucide-react';
 import { COLUMNS, PRIORITAS } from '@/lib/papan';
+import { useDialog } from '@/lib/useDialog';
 
 // Detail kartu: ubah isi, checklist, tenggat, dan pindah lajur tanpa menyeret.
 export default function CardModal({ card, kolom, onClose, onSave, onDelete }) {
   const [f, setF] = useState(null);
   const [item, setItem] = useState('');
   const judulRef = useRef(null);
+  const dialogRef = useRef(null);
+  const teks = useRef('');
+  if (card) teks.current = card.text;
+  // Fokus terkurung di dialog; saat ditutup kembali ke tombol "Buka detail" kartu itu (juga bila kartu pindah lajur).
+  useDialog(!!card, dialogRef, () => [...document.querySelectorAll('button[aria-label^="Buka detail: "]')].find((b) => b.getAttribute('aria-label') === `Buka detail: ${teks.current}`));
 
   useEffect(() => {
     if (!card) return;
@@ -36,11 +42,11 @@ export default function CardModal({ card, kolom, onClose, onSave, onDelete }) {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center bg-on-surface/40 backdrop-blur-sm sm:items-center sm:p-4" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-labelledby="judul-kartu" onClick={(e) => e.stopPropagation()}
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="judul-kartu" onClick={(e) => e.stopPropagation()}
         className="flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-3xl bg-surface shadow-2xl sm:rounded-3xl">
         <div className="flex items-center justify-between border-b border-outline-variant/60 px-6 py-4">
           <h2 id="judul-kartu" className="text-lg font-bold text-on-surface">Detail kartu</h2>
-          <button type="button" onClick={onClose} aria-label="Tutup" className="rounded-full p-1.5 text-on-surface-variant hover:bg-surface-container-high"><X size={18} /></button>
+          <button type="button" onClick={onClose} aria-label="Tutup" className="grid h-10 w-10 place-items-center rounded-full text-on-surface-variant hover:bg-surface-container-high"><X size={18} aria-hidden="true" /></button>
         </div>
 
         <form id="form-kartu" onSubmit={simpan} className="flex-1 space-y-4 overflow-y-auto p-6">
@@ -66,7 +72,7 @@ export default function CardModal({ card, kolom, onClose, onSave, onDelete }) {
                     <input type="checkbox" checked={x.done} onChange={() => set('checklist', f.checklist.map((y) => (y.id === x.id ? { ...y, done: !y.done } : y)))} className="h-4 w-4 accent-primary" />
                     <span className={x.done ? 'text-on-surface-variant line-through' : ''}>{x.text}</span>
                   </label>
-                  <button type="button" onClick={() => set('checklist', f.checklist.filter((y) => y.id !== x.id))} aria-label={`Hapus ${x.text}`} className="rounded p-1 text-on-surface-variant hover:text-error"><X size={14} /></button>
+                  <button type="button" onClick={() => set('checklist', f.checklist.filter((y) => y.id !== x.id))} aria-label={`Hapus ${x.text}`} className="grid h-8 w-8 place-items-center rounded text-on-surface-variant hover:text-error"><X size={14} aria-hidden="true" /></button>
                 </li>
               ))}
             </ul>

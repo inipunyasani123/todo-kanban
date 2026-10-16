@@ -1,11 +1,8 @@
 import TopBar from '@/components/TopBar';
 import Statistik from '@/components/Statistik';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Statistik',
-  description: 'Statistik papan Lajur: lead time, cycle time, kartu selesai per hari, isi tiap lajur terhadap batas WIP, dan umur kartu yang sedang dikerjakan.',
-  alternates: { canonical: '/statistik' },
-};
+export const metadata = pageMeta({ title: 'Statistik', description: "Statistik papan Lajur: lead time, cycle time, kartu selesai per hari, isi tiap lajur terhadap batas WIP, dan umur kartu yang sedang dikerjakan.", path: '/statistik' });
 
 export default function StatistikPage() {
   return (

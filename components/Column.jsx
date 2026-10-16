@@ -38,7 +38,7 @@ export default function Column({ column, cards, jumlah, hari, onAdd, onOpen, onA
           </p>
         </div>
         {onArsip && jumlah > 0 && (
-          <button type="button" onClick={onArsip} className="flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high hover:text-primary">
+          <button type="button" onClick={onArsip} className="flex min-h-8 items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high hover:text-primary">
             <Archive size={14} aria-hidden="true" /> Arsipkan
           </button>
         )}

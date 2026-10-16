@@ -1,35 +1,20 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESC, pageMeta } from "@/lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 const __jsonld = {"@context":"https://schema.org","@type":"WebApplication","name":"Lajur Kanban","description":"Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.","url":"https://todo-kanban.pintuweb.id","applicationCategory":"ProductivityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"}};
 
 export const metadata = {
-  metadataBase: new URL("https://todo-kanban.pintuweb.id"),
-  title: { default: "Lajur — Papan kanban dengan batas WIP", template: "%s — Lajur" },
-  description: "Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.",
-  applicationName: "Lajur",
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_TITLE, template: `%s — ${SITE_NAME}` },
+  applicationName: SITE_NAME,
   keywords: ["kanban", "papan kanban", "manajemen tugas", "produktivitas", "project board"],
-  authors: [{ name: "Lajur" }],
-  creator: "Lajur",
-  publisher: "Lajur",
-  alternates: { canonical: "https://todo-kanban.pintuweb.id" },
-  openGraph: {
-    type: "website",
-    locale: "id_ID",
-    url: "https://todo-kanban.pintuweb.id",
-    siteName: "Lajur",
-    title: "Lajur — Papan kanban dengan batas WIP",
-    description: "Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Lajur — Papan kanban dengan batas WIP" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Lajur — Papan kanban dengan batas WIP",
-    description: "Papan kanban tiga lajur: seret kartu, checklist dan tenggat di tiap kartu, batas kerja paralel, arsip, serta statistik lead time dan cycle time.",
-    images: ["/og.jpg"],
-  },
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  ...pageMeta({ description: SITE_DESC, path: '/' }),
   robots: {
     index: true,
     follow: true,

@@ -18,8 +18,8 @@ export function CardView({ card, hari, onOpen, dragging }) {
         {card.tag ? <span className="rounded bg-primary-fixed px-2 py-0.5 text-[11px] font-bold tracking-wide text-primary">{card.tag}</span> : <span />}
         {onOpen && (
           <button type="button" onClick={() => onOpen(card)} onPointerDown={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()}
-            aria-label={`Buka detail: ${card.text}`} className="-m-1 rounded p-1 text-on-surface-variant transition hover:bg-surface-container-high hover:text-primary">
-            <PanelRightOpen size={16} />
+            aria-label={`Buka detail: ${card.text}`} className="-m-2 rounded-lg p-2 text-on-surface-variant transition hover:bg-surface-container-high hover:text-primary">
+            <PanelRightOpen size={16} aria-hidden="true" />
           </button>
         )}
       </div>
